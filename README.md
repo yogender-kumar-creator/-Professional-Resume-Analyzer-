@@ -1,62 +1,86 @@
 📄 Professional Resume Analyzer 🚀
-Welcome to the Professional Resume Analyzer! This app helps job seekers ✨ polish their resumes for better chances at landing interviews by providing smart, AI-inspired feedback.
 
-Features 🌟
-📥 Upload your resume in PDF format effortlessly.
+Welcome to the Professional Resume Analyzer!
+This app helps job seekers polish their resumes for better chances at landing interviews by providing smart, AI-inspired feedback.
 
-🧠 Analyze resumes for key skills, achievements, and structure.
 
-📊 Generate a comprehensive score (0-100) based on multiple quality metrics.
+🌟 Features
 
-✅ Identify missing sections and suggest improvements.
+📥 Upload Resumes: Easily upload PDF resumes.
 
-🎯 Highlight key skills, both technical and soft.
+🧠 AI Analysis: Analyze resumes for key skills, achievements, and structure.
 
-📝 Provide an automatically generated professional summary.
+📊 Resume Scoring: Get a comprehensive score (0–100) based on multiple quality metrics.
 
-📥 Download detailed JSON reports for further review.
+✅ Improvement Suggestions: Identify missing sections and get actionable recommendations.
 
-🎨 Modern UI built with Tailwind CSS and interactive animations.
+🎯 Skill Highlighting: Highlight both technical and soft skills automatically.
 
-Tech Stack 🛠️
-Backend: Node.js, Express, pdf-parse, express-fileupload
+📝 Professional Summary: Generate an AI-powered professional summary for your resume.
 
-Frontend: HTML, CSS (Tailwind), JavaScript, Feather Icons, AOS animation
+📥 Download Reports: Export detailed JSON reports for deeper insights.
 
-Others: CORS for backend/frontend communication
+🎨 Modern UI: Interactive, clean interface built with Tailwind CSS and animations.
 
-Setup & Installation ⚙️
 
-Clone this repo
+🛠️ Tech Stack
 
-git clone https://github.com/yourusername/resume-analyzer.git
-cd resume-analyzer
+Backend:
+
+Node.js
+
+Express
+
+pdf-parse
+
+express-fileupload
+
+Frontend:
+
+HTML, CSS (Tailwind), JavaScript
+
+Feather Icons
+
+AOS animation library
+
+Others:
+
+CORS for backend/frontend communication
+
+
+⚙️ Setup & Installation
+Clone Repository
+git clone https://github.com/yogender-kumar-creator/-Professional-Resume-Analyzer-
+cd -Professional-Resume-Analyzer-
 
 Backend Setup
-
 cd backend
 npm install
 node server.js
 
-Server runs on http://localhost:5000
+
+Backend server runs on http://localhost:5000
 
 Frontend Setup
 
 Open frontend/index.html or frontend/upload.html in your browser.
 
-Make sure backend server is running.
+Ensure backend server is running.
 
-Usage 🚀
+
+🚀 Usage
+
 Drag & drop your resume PDF or click to select a file.
 
-Wait for the analysis and watch the progress bar.
+Wait for the analysis to complete while watching the progress bar.
 
-View your resume score, highlights, suggestions, and summary.
+View your resume score, highlights, suggestions, and AI-generated summary.
 
-Download the JSON report for deeper insights.
+Download the JSON report for detailed insights. 
 
-Repository Structure 📂
-text
+
+📂 Repository Structure 
+
 resume-analyzer/
 ├── backend/
 │   ├── server.js
@@ -65,20 +89,26 @@ resume-analyzer/
 │   ├── index.html
 │   ├── upload.html
 │   ├── assets/
-├── README.md  ← You are here!
+├── README.md
 
-Contribution Guidelines 🤝
-Feel free to open issues and submit pull requests.
+
+🤝 Contribution Guidelines
+
+Open issues or submit pull requests for improvements.
 
 Ensure new features maintain or improve scoring quality.
 
-Follow best practices for clean code and documentation.
+Follow clean code practices and proper documentation.
 
-Reach out anytime for clarifications or help!
+Reach out anytime for clarifications.
 
-License 📝
 
-This project is proprietary and was created by me. All rights reserved.
+📝 License
+
+This project is proprietary and created by Yogender Kumar. All rights reserved.
 
 Name: Yogender Kumar
-E-mail: yashkadian249@gmail.com
+
+Email: yashkadian249@gmail.com
+
+GitHub Repo: Professional Resume Analyzer
