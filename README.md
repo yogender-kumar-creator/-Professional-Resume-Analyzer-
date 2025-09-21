@@ -60,6 +60,7 @@ Open `frontend/index.html` or `frontend/upload.html` in your web browser.
 ## 📂 Repository Structure
 
 resume-analyzer/
+
 ├── backend/
 │   ├── server.js
 │   ├── package.json
