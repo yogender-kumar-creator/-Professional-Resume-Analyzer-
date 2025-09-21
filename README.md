@@ -61,14 +61,15 @@ Open `frontend/index.html` or `frontend/upload.html` in your web browser.
 
 resume-analyzer/
 ├── backend/
-│ ├── server.js
-│ ├── package.json
+│   ├── server.js
+│   ├── package.json
 ├── frontend/
-│ ├── index.html
-│ ├── upload.html
-│ ├── assets/
-│ │ └── app-preview.gif
+│   ├── index.html
+│   ├── upload.html
+│   ├── assets/
+│   │   └── app-preview.gif
 ├── README.md
+
 
 text
 
