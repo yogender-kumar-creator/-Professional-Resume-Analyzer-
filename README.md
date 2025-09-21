@@ -9,7 +9,7 @@
 Welcome to the **Professional Resume Analyzer**!  
 This app helps job seekers **polish their resumes** for better chances at landing interviews using **AI-powered insights**.
 
-![App Preview](Frontend/image.png) <!-- Replace with your actual GIF or image path -->
+![App Preview](image.png) <!-- Replace with your actual GIF or image path -->
 
 ---
 
