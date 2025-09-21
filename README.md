@@ -3,7 +3,7 @@
 Welcome to the Professional Resume Analyzer!
 This app helps job seekers polish their resumes for better chances at landing interviews by providing smart, AI-inspired feedback.
 
-
+------------------------------------------------------------------------------------------------------------------------------------------------
 🌟 Features
 
 📥 Upload Resumes: Easily upload PDF resumes.
