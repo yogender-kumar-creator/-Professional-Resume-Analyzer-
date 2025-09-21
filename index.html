@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analysis App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="file-text" class="text-primary h-8 w-8"></i>
+                        <span class="ml-2 text-xl font-semibold text-gray-900">ResumeAnalyzer</span>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <a href="upload.html" class="px-4 py-2 rounded-md text-white gradient-bg hover:opacity-90 transition">Analyze Resume</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="gradient-bg text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center" data-aos="fade-up">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Resume Analysis App</h1>
+                <p class="text-xl md:text-2xl opacity-90">Get instant feedback on your resume and improve your job prospects</p>
+                <div class="mt-8">
+                    <a href="upload.html" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-100 transition">
+                        Analyze Your Resume Now
+                        <i data-feather="arrow-right" class="ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem Statement -->
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-900">The Resume Problem</h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">Most job seekers struggle with creating effective resumes that get noticed</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg card-shadow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white mb-4">
+                        <i data-feather="eye-off"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Poor Visibility</h3>
+                    <p class="text-gray-600">80% of resumes are rejected by ATS before a human even sees them due to poor formatting and missing keywords.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg card-shadow" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white mb-4">
+                        <i data-feather="alert-circle"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Common Mistakes</h3>
+                    <p class="text-gray-600">Most resumes contain spelling errors, inconsistent formatting, and lack measurable achievements.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg card-shadow" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white mb-4">
+                        <i data-feather="clock"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Time Consuming</h3>
+                    <p class="text-gray-600">Job seekers spend hours crafting resumes but often don't know what recruiters are actually looking for.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solution Section -->
+    <div class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-900">Our Solution</h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">Instant resume analysis with actionable insights</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-lg card-shadow text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white mb-4 mx-auto">
+                        <i data-feather="star"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Resume Rating</h3>
+                    <p class="text-gray-600">Get an instant 1-10 rating of your resume quality with detailed breakdown.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg card-shadow text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white mb-4 mx-auto">
+                        <i data-feather="edit"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Actionable Suggestions</h3>
+                    <p class="text-gray-600">Receive specific recommendations to improve your resume's impact.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg card-shadow text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white mb-4 mx-auto">
+                        <i data-feather="file-text"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Summary Generator</h3>
+                    <p class="text-gray-600">Automatically generate a professional 2-line summary of your experience.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg card-shadow text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-primary text-white mb-4 mx-auto">
+                        <i data-feather="check-circle"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Skills Check</h3>
+                    <p class="text-gray-600">Identify missing skills that could make your resume more competitive.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="gradient-bg text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6">Ready to improve your resume?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Upload your resume now and get instant feedback to help you land more interviews.</p>
+            <a href="/upload.html" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-100 transition">
+                Analyze Your Resume
+                <i data-feather="arrow-right" class="ml-2"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">ResumeAnalyzer</h3>
+                    <p class="text-gray-400">Helping job seekers create better resumes since 2023.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="/upload.html" class="text-gray-400 hover:text-white transition">Analyze Resume</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="github"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2023 ResumeAnalyzer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        feather.replace();
+    </script>
+</body>
+</html>
