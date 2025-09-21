@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6',
+                        success: '#10b981',
+                        warning: '#f59e0b',
+                        danger: '#ef4444'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); }
+        .card-shadow { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        #drop-area { border: 3px dashed #cbd5e0; transition: all 0.3s ease; }
+        #drop-area.highlight { border-color: #3b82f6; background-color: rgba(59, 130, 246, 0.05); }
+        .progress-bar { transition: width 0.5s ease; }
+        .score-circle { transform: rotate(-90deg); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="file-text" class="text-primary h-8 w-8"></i>
+                        <span class="ml-2 text-xl font-bold text-gray-900">Professional Resume Analyzer</span>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <a href="index.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition">Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Analyze Your Resume</h1>
+            <p class="text-xl text-gray-600">Get professional insights and improve your chances of landing your dream job</p>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="bg-white rounded-xl card-shadow p-8 mb-8" data-aos="fade-up" data-aos-delay="100">
+            <div id="drop-area" class="rounded-xl p-12 text-center cursor-pointer">
+                <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-primary-100 mb-6">
+                    <i data-feather="upload-cloud" class="text-primary h-8 w-8"></i>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-900 mb-2">Drop your resume here</h3>
+                <p class="text-gray-600 mb-6">or click to browse files</p>
+                <input type="file" id="fileElem" accept=".pdf" class="hidden">
+                <label for="fileElem" class="inline-flex items-center px-6 py-3 border-2 border-primary text-primary bg-white hover:bg-primary hover:text-white rounded-lg font-semibold transition-all cursor-pointer">
+                    <i data-feather="folder" class="mr-2"></i>
+                    Choose File
+                </label>
+                <p class="text-sm text-gray-500 mt-4">Support: PDF files only (max 10MB)</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div id="progress-container" class="mt-8 hidden">
+                <div class="flex justify-between mb-2">
+                    <span class="text-sm font-medium text-gray-700">Analyzing Resume...</span>
+                    <span id="progress-percent" class="text-sm font-medium text-primary">0%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div id="progress-bar" class="progress-bar bg-gradient-to-r from-primary to-secondary h-3 rounded-full" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results-section" class="hidden space-y-8" data-aos="fade-up" data-aos-delay="200">
+            <!-- Score Section -->
+            <div class="bg-white rounded-xl card-shadow p-8">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900">Resume Analysis Results</h2>
+                    <div class="flex items-center">
+                        <div class="relative w-24 h-24">
+                            <svg class="w-24 h-24 score-circle">
+                                <circle cx="48" cy="48" r="40" stroke="#e5e7eb" stroke-width="8" fill="none"/>
+                                <circle id="score-circle" cx="48" cy="48" r="40" stroke="#3b82f6" stroke-width="8" fill="none" stroke-dasharray="251.2" stroke-dashoffset="251.2"/>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span id="score-display" class="text-2xl font-bold text-primary">0</span>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Overall Score</h3>
+                            <p id="score-feedback" class="text-gray-600"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <div class="text-2xl font-bold text-primary" id="skills-count">0</div>
+                        <div class="text-sm text-gray-600">Skills Found</div>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <div class="text-2xl font-bold text-success" id="sections-count">0</div>
+                        <div class="text-sm text-gray-600">Sections</div>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <div class="text-2xl font-bold text-warning" id="achievements-count">0</div>
+                        <div class="text-sm text-gray-600">Achievements</div>
+                    </div>
+                    <div class="text-center p-4 bg-gray-50 rounded-lg">
+                        <div class="text-2xl font-bold text-gray-700" id="words-count">0</div>
+                        <div class="text-sm text-gray-600">Words</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Highlights -->
+            <div class="bg-white rounded-xl card-shadow p-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">🎯 Key Highlights</h3>
+                <div id="highlights" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <!-- Professional Summary -->
+            <div class="bg-white rounded-xl card-shadow p-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">📋 Professional Summary</h3>
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border-l-4 border-primary">
+                    <p id="summary-text" class="text-gray-700 text-lg leading-relaxed italic"></p>
+                </div>
+            </div>
+
+            <!-- Suggestions -->
+            <div class="bg-white rounded-xl card-shadow p-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">💡 Improvement Suggestions</h3>
+                <div id="suggestions-list" class="space-y-4">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <!-- Missing Skills -->
+            <div class="bg-white rounded-xl card-shadow p-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">🚀 Skills to Consider Adding</h3>
+                <div id="skills-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <!-- Action Button -->
+            <div class="text-center">
+                <button onclick="window.location.reload()" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-xl hover:shadow-lg transition-all">
+                    <i data-feather="refresh-cw" class="mr-3"></i>
+                    Analyze Another Resume
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        AOS.init({ duration: 1000, easing: 'ease-out-cubic', once: true });
+        feather.replace();
+
+        const dropArea = document.getElementById('drop-area');
+        const fileElem = document.getElementById('fileElem');
+        const progressContainer = document.getElementById('progress-container');
+        const progressBar = document.getElementById('progress-bar');
+        const progressPercent = document.getElementById('progress-percent');
+        const resultsSection = document.getElementById('results-section');
+
+        // File upload handlers
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+            document.body.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) { e.preventDefault(); e.stopPropagation(); }
+
+        ['dragenter', 'dragover'].forEach(ev => 
+            dropArea.addEventListener(ev, () => dropArea.classList.add('highlight'), false)
+        );
+        ['dragleave', 'drop'].forEach(ev => 
+            dropArea.addEventListener(ev, () => dropArea.classList.remove('highlight'), false)
+        );
+
+        dropArea.addEventListener('drop', handleDrop, false);
+        fileElem.addEventListener('change', handleFiles, false);
+
+        function handleDrop(e) {
+            const files = e.dataTransfer.files;
+            handleFiles({ target: { files } });
+        }
+
+        function handleFiles(e) {
+            const files = e.target.files;
+            if (!files || files.length === 0) return;
+            
+            const file = files[0];
+            if (file.type !== 'application/pdf') {
+                alert('Please upload a PDF file.');
+                return;
+            }
+            if (file.size > 10 * 1024 * 1024) {
+                alert('File size exceeds 10MB limit.');
+                return;
+            }
+            uploadFile(file);
+        }
+
+        async function uploadFile(file) {
+            progressContainer.classList.remove('hidden');
+            updateProgress(20);
+
+            const formData = new FormData();
+            formData.append('resume', file);
+
+            try {
+                updateProgress(50);
+                const response = await fetch('http://localhost:5000/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                updateProgress(80);
+                const data = await response.json();
+                updateProgress(100);
+                
+                setTimeout(() => {
+                    progressContainer.classList.add('hidden');
+                    displayResults(data);
+                }, 500);
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to analyze resume. Please check if the server is running.');
+                progressContainer.classList.add('hidden');
+            }
+        }
+
+        function updateProgress(percent) {
+            progressBar.style.width = percent + '%';
+            progressPercent.textContent = Math.round(percent) + '%';
+        }
+
+        function displayResults(data) {
+            if (data.error) {
+                alert('Error: ' + data.error);
+                return;
+            }
+
+            // Animate score circle
+            const score = data.resume_rating || 0;
+            const circle = document.getElementById('score-circle');
+            const circumference = 2 * Math.PI * 40;
+            const offset = circumference - (score / 100) * circumference;
+            
+            setTimeout(() => {
+                circle.style.strokeDashoffset = offset;
+                document.getElementById('score-display').textContent = score;
+            }, 200);
+
+            // Update quick stats
+            document.getElementById('skills-count').textContent = (data.highlights || []).length;
+            document.getElementById('sections-count').textContent = (data.detailed_analysis?.sections_found || []).length;
+            document.getElementById('achievements-count').textContent = (data.detailed_analysis?.quantifiable_achievements || []).length;
+            document.getElementById('words-count').textContent = data.detailed_analysis?.word_count || 0;
+
+            // Score feedback
+            const feedback = score >= 80 ? 'Excellent! Your resume is well-optimized.' :
+                           score >= 60 ? 'Good foundation, with room for improvement.' :
+                           score >= 40 ? 'Needs significant improvements.' : 'Requires major restructuring.';
+            document.getElementById('score-feedback').textContent = feedback;
+
+            // Highlights
+            const highlightsContainer = document.getElementById('highlights');
+            highlightsContainer.innerHTML = '';
+            (data.highlights || []).forEach(skill => {
+                highlightsContainer.innerHTML += `
+                    <div class="flex items-center p-3 bg-green-50 rounded-lg border border-green-200">
+                        <i data-feather="check" class="text-green-600 mr-3 flex-shrink-0"></i>
+                        <span class="text-green-800 font-medium">${skill}</span>
+                    </div>`;
+            });
+
+            // Summary
+            document.getElementById('summary-text').textContent = data.summary || 'No summary available.';
+
+            // Suggestions
+            const suggestionsList = document.getElementById('suggestions-list');
+            suggestionsList.innerHTML = '';
+            (data.suggestions || []).forEach((suggestion, index) => {
+                suggestionsList.innerHTML += `
+                    <div class="flex items-start p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                        <div class="flex-shrink-0 w-6 h-6 bg-yellow-400 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4">${index + 1}</div>
+                        <p class="text-yellow-800">${suggestion}</p>
+                    </div>`;
+            });
+
+            // Missing skills
+            const skillsContainer = document.getElementById('skills-container');
+            skillsContainer.innerHTML = '';
+            (data.missing_skills || []).slice(0, 12).forEach(skill => {
+                skillsContainer.innerHTML += `
+                    <div class="p-3 bg-blue-50 rounded-lg border border-blue-200 text-center">
+                        <span class="text-blue-800 font-medium">${skill}</span>
+                    </div>`;
+            });
+
+            resultsSection.classList.remove('hidden');
+            resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            feather.replace();
+        }
+    </script>
+</body>
+</html>
