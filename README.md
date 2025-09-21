@@ -9,8 +9,7 @@
 Welcome to the **Professional Resume Analyzer**!  
 This app helps job seekers **polish their resumes** for better chances at landing interviews using **AI-powered insights**.
 
-![App Preview](![App Preview](frontend/assets/screenshot.png)
- <!-- Replace with your actual GIF or image path -->
+![App Preview](frontend/image.png) <!-- Replace with your actual GIF or image path -->
 
 ---
 
@@ -27,21 +26,9 @@ This app helps job seekers **polish their resumes** for better chances at landin
 
 ---
 
-## 🛠️ Tech Stack
-
-- **Node.js & Express** – Backend server and API handling  
-- **pdf-parse & express-fileupload** – PDF extraction and upload  
-- **HTML, CSS (Tailwind), JavaScript** – Frontend interface  
-- **Feather Icons & AOS** – UI/UX enhancements  
-- **CORS** – Frontend/Backend communication
-
----
-
 ## ⚙️ Setup & Installation
 
 1. **Clone the repository**  
 ```bash
 git clone https://github.com/yogender-kumar-creator/-Professional-Resume-Analyzer-
 cd -Professional-Resume-Analyzer-
-
-Install dependencies
