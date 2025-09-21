@@ -82,13 +82,21 @@ Download the JSON report for detailed insights.
 📂 Repository Structure 
 
 resume-analyzer/
+
 ├── backend/
+
 │   ├── server.js
+
 │   ├── package.json
+
 ├── frontend/
+
 │   ├── index.html
+
 │   ├── upload.html
+
 │   ├── assets/
+
 ├── README.md
 
 
